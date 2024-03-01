@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+    View,
+    Text,
+    TextInput,
+    TouchableOpacity,
+    Vibration
+} from "react-native";
 import ResultIMC from "./ResultIMC/"
 import styles from "./style";
 
@@ -21,7 +27,8 @@ export default function Form() {
     //Função para verificar se o IMC está nulo 
     function verificationIMC() {
         if (IMC == null) {
-            setErrorMessage = ("Campo Obrigatório* ")
+            Vibration.vibrate();  //API react 
+            setErrorMessage = ("Campo Obrigatório* ");
         }
     }
 
