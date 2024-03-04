@@ -1,6 +1,13 @@
 import { StyleSheet, View } from 'react-native';
 
 const styles = StyleSheet.create({
+    contextIMC: {
+        flex: 1,
+        marginTop: 20,
+        paddingTop: 15,
+        alignItems: "center",
+        width: "100%",
+    },
     resultIMC: {
         flex: 1,
         marginTop: 15,
@@ -8,6 +15,10 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         alignItems: "center",
         width: "100%"
+    },
+    titleResultIMC: {
+        fontSize: 18,
+
     },
     numberIMC: {
         fontSize: 48,
