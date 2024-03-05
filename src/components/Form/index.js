@@ -7,24 +7,29 @@ import {
     Vibration,
     Pressable,
     Keyboard,
+    FlatList
 } from "react-native";
 import ResultIMC from "./ResultIMC/"
 import styles from "./style";
 
 export default function Form() {
 
-    //Declaração de estados das constantes
+    //Declaração de estados das constantes (states / obs: useState -> hooks)
     const [height, setHeight] = useState(nul);
     const [weight, setWeight] = useState(nul);
     const [messageIMC, setMessageIMC] = useState("Preencha o peso e a altura");
     const [IMC, setIMC] = useState(nul);
     const [textButton, setTextButton] = useState("Calcular");
     const [errorMessage, setErrorMessage] = useState(null);
+    const [listIMC, setListIMC] = useState([]);
 
     //Função para calcular o IMC
-    let heightFormat = height.replace(",", ".");
     function IMCCalculator() {
-        return setIMC((weight / (heightFormat * heightFormat)).toFixed(2));
+        let heightFormat = height.replace(",", ".");
+        let totalIMC = setIMC((weight / (heightFormat * heightFormat)).toFixed(2));
+
+        setListIMC(() => [...arr, { id: new Date().getTime(), IMC: totalIMC }])
+        setIMC(totalIMC)
     }
 
     //Função para verificar se o IMC está nulo 
@@ -99,6 +104,23 @@ export default function Form() {
                     </TouchableOpacity>
                 </View>
             }
+            <FlatList
+                showsVerticalScrollIndicator={false}
+                style={styles.listIMCs}
+                data={listIMC.reverse()}
+                renderItem={({ item }) => {
+                    return (
+                        <Text style={styles.ResultIMCItem}>
+                            <Text style={styles.textResultItemList}>Resultado IMC = {item.IMC}</Text>
+                        </Text>
+                    )
+                }}
+                keyExtractor={(item) => {
+                    item.id
+                }}
+            >
+
+            </FlatList>
         </View >
     );
 }

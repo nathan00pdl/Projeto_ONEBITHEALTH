@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
         paddingTop: 30
     },
     form: {
-        width: "100%",
+        width: "100%"
     },
     formLabel: {
         color: "#000000",
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     textButtonCalculator: {
         fontSize: 20,
-        color: "#ffffff",
+        color: "#ffffff"
     },
     errorMessage: {
         fontSize: 12,
@@ -49,7 +49,21 @@ const styles = StyleSheet.create({
     },
     exhibitionResultIMC: {
         width: "100%",
-        height: "50%",
+        height: "50%"
+    },
+    listIMCs: {
+        marginTop: 20
+    },
+    ResultIMCItem: {
+        fontSize: 26,
+        color: "red",
+        height: 50,
+        width: "100%",
+        paddingRight: 20
+    },
+    textResultItemList: {
+        fontSize: 16,
+        color: "red"
     }
 })
 
